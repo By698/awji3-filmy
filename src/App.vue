@@ -14,7 +14,7 @@ import MoviesByGenre from "./components/MoviesByGenre";
 import MoviesByCast from "./components/MoviesByCast";
 
 export default {
-  name: "app",
+  name: "App",
   components: {
     Search,
     MoviesTable,
