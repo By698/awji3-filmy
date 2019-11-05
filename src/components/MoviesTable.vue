@@ -1,6 +1,16 @@
 <template>
   <div class="table-movies">
-    <h1>Movies table</h1>
+    <table class="table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Production Year</th>
+          <th>Cast</th>
+          <th>Genres</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 </template>
 
