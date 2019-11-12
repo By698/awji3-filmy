@@ -10,11 +10,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="movie in Movies" v-bind:key="movie.title">
+        <tr v-for="(movie, index) in Movies" v-bind:key="index">
           <td>{{movie.title}}</td>
           <td>{{movie.year}}</td>
-          <td>{{movie.cast}}</td>
-          <td>{{movie.genres}}</td>
+          <td>{{movie.cast.toString()}}</td>
+          <td>{{movie.genres.toString()}}</td>
         </tr>
       </tbody>
     </table>
