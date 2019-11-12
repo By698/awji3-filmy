@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="movie in movies" v-bind:key="movie.title">
+        <tr v-for="movie in Movies" v-bind:key="movie.title">
           <td>{{movie.title}}</td>
           <td>{{movie.year}}</td>
           <td>{{movie.cast}}</td>
@@ -18,6 +18,8 @@
         </tr>
       </tbody>
     </table>
+    <button @click="limit = limit+10">Shore more</button>
+
   </div>
 </template>
 
@@ -27,8 +29,14 @@
 export default {
   name: "MoviesTable",
   data: () => ({
-    movies: json.valueOf() // initialize empty array
-  })
+    movies: json.valueOf(), // initialize empty array
+    limit: 10
+  }),
+  computed:{
+    Movies(){
+      return this.limit ? this.movies.slice(0,this.limit) : this.movies
+    }
+  }
 };
 </script>
 
