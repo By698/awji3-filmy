@@ -9,14 +9,26 @@
           <th>Genres</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        <tr v-for="movie in movies" v-bind:key="movie.title">
+          <td>{{movie.title}}</td>
+          <td>{{movie.year}}</td>
+          <td>{{movie.cast}}</td>
+          <td>{{movie.genres}}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
 
 <script>
+ import json from '../assets/movies.json'
+
 export default {
-  name: "MoviesTable"
+  name: "MoviesTable",
+  data: () => ({
+    movies: json.valueOf() // initialize empty array
+  })
 };
 </script>
 
