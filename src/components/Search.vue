@@ -65,10 +65,12 @@ export default {
   name: "Search",
 
   data: () => ({
+    //storing from input right here, right now
     searchTitle: "",
     searchProductionFrom: "",
     searchProductionTo: "",
     searchCast: "",
+    //storing after clicking button
     title: "",
     productionFrom: "",
     productionTo: "",
