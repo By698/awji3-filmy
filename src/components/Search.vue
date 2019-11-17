@@ -9,6 +9,7 @@
           id="inputTitle"
           placeholder="Enter a title or part of a movie title"
           class="form-control"
+          v-model="searchTitle"
         />
       </div>
       <div class="form-group row">
@@ -19,6 +20,7 @@
             id="inputProductionForm"
             placeholder="Natural number between 1900-2019"
             class="form-control"
+            v-model="searchProductionFrom"
           />
         </div>
       </div>
@@ -30,6 +32,7 @@
             id="inputProductionTo"
             placeholder="Natural number between 1900-2019"
             class="form-control"
+            v-model="searchProductionTo"
           />
         </div>
       </div>
@@ -40,10 +43,18 @@
           id="inputCast"
           placeholder="First name and last name"
           class="form-control"
+          v-model="searchCast"
+
+
         />
       </div>
       <div class="form-group row">
-        <input type="button" value="Search" class="btn btn-info col-sm-12" />
+        <input
+                type="button"
+                value="Search"
+                class="btn btn-info col-sm-12"
+                v-on:click="updateValues()"
+        />
       </div>
     </form>
   </div>
@@ -51,9 +62,40 @@
 
 <script>
 export default {
-  name: "Search"
+  name: "Search",
+
+  data: () => ({
+    searchTitle: "",
+    searchProductionFrom: "",
+    searchProductionTo: "",
+    searchCast: "",
+    title: "",
+    productionFrom: "",
+    productionTo: "",
+    cast: "",
+
+  }),
+methods:
+ {  updateValues: function() {
+    this.title = this.searchTitle;
+    this.productionFrom = this.searchProductionFrom;
+    this.productionTo = this.searchProductionTo;
+    this.cast = this.searchCast;
+     /*eslint no-console: ["error", { allow: ["log", "error"] }] */
+
+     console.log(this.title);
+     console.log(this.productionFrom);
+     console.log(this.productionTo);
+     console.log(this.cast);
+
+ },
+
+
+ }
+
 };
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
