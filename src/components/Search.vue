@@ -48,10 +48,10 @@
       </div>
       <div class="form-group row">
         <input
-          type="button"
-          value="Search"
-          class="btn btn-info col-sm-12"
-          v-on:click="updateValues()"
+                type="button"
+                value="Search"
+                class="btn btn-info col-sm-12"
+                v-on:click="submit()"
         />
       </div>
     </form>
@@ -68,25 +68,14 @@ export default {
     searchProductionFrom: "",
     searchProductionTo: "",
     searchCast: "",
-    //storing after clicking button
-    title: "",
-    productionFrom: "",
-    productionTo: "",
-    cast: ""
   }),
-  methods: {
-    updateValues: function() {
-      this.title = this.searchTitle;
-      this.productionFrom = this.searchProductionFrom;
-      this.productionTo = this.searchProductionTo;
-      this.cast = this.searchCast;
-      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
+  methods: {  
+    submit: function() {
 
-      console.log(this.title);
-      console.log(this.productionFrom);
-      console.log(this.productionTo);
-      console.log(this.cast);
-    }
+      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
+      let search = {title: this.searchTitle, productionFrom: this.searchProductionFrom, productionTo: this.searchProductionTo, cast: this.searchCast}
+      this.$emit("inputData", search);
+    },
   }
 };
 </script>
