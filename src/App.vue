@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Search @inputData="updateTitle" />
-    <MoviesTable />
+    <MoviesTable :search-data="searchData" />
     <MoviesByGenre />
     <MoviesByCast />
   </div>
@@ -23,17 +23,16 @@ export default {
   },
   data: function() {
     return {
-      movie: {
-
-      }
+      searchData: {}
     };
   },
   methods: {
     updateTitle(variable) {
-      this.movie= variable;
-      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
-       console.log(this.movie);
-    }
+      this.searchData = variable;
+      /*  eslint no-console: ["error", { allow: ["log", "error"] }] */
+       console.log(this.searchData);
+    },
+
   }
 };
 </script>

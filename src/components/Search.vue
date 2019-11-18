@@ -75,19 +75,13 @@ export default {
   }),
 methods:
  {  submit: function() {
-    // this.title = this.searchTitle;
-    // this.productionFrom = this.searchProductionFrom;
-    // this.productionTo = this.searchProductionTo;
-    // this.cast = this.searchCast;
+
      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
      let search = {title: this.searchTitle, productionFrom: this.searchProductionFrom, productionTo: this.searchProductionTo, cast: this.searchCast}
      this.$emit("inputData", search);
 
      console.log('Data has been sent.title '+this.searchTitle);
-     this.searchTitle = "";
-     // console.log(this.productionFrom);
-     // console.log(this.productionTo);
-     // console.log(this.cast);
+
 
  },
 

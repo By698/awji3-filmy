@@ -28,9 +28,11 @@ import { _ } from "vue-underscore";
 
 export default {
   name: "MoviesTable",
+  props:  ['searchData'],
   data: () => ({
     movies: json.valueOf(), // initialize empty array
-    limit: 10
+    limit: 10,
+
   }),
   computed: {
     Movies() {
@@ -39,11 +41,21 @@ export default {
     Filter() {
            /*eslint no-console: ["error", { allow: ["log", "error"] }] */
       let filtered = _.where(this.movies, {year:2015})
-      console.log(filtered)
-      return filtered
+      console.log(filtered);
+      return filtered;
+    }
+  },
+  watch: {
+    searchData: function(){
+      // this.searchData = this.input;
+      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
+      console.log(this.searchData);
+      // console.log("MovieTable przechwycilo dane! "+ this.toSearch.toString());
+
     }
   }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
