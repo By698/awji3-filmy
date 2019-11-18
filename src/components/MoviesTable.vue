@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(movie, index) in movies" v-bind:key="index">
+        <tr v-for="(movie, index) in Movies" v-bind:key="index">
           <td>{{movie.title}}</td>
           <td>{{movie.year}}</td>
           <td>{{movie.cast.join(", ")}}</td>
@@ -18,17 +18,23 @@
         </tr>
       </tbody>
     </table>
+    <button @click="limit = limit + 10">Shore more</button>
+
   </div>
 </template>
 
 <script>
-import movies from "../assets/movies.json";
-// let movie = movies[0].title
+ import json from '../assets/movies.json'
+
 export default {
   name: "MoviesTable",
-  data() {
-    return {
-      movies: movies
+  data: () => ({
+    movies: json.valueOf(), // initialize empty array
+    limit: 10
+  }),
+  computed:{
+    Movies(){
+      return this.limit ? this.movies.slice(0,this.limit) : this.movies
     }
   }
 };
