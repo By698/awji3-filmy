@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Search />
+    <Search @inputData="updateTitle" />
     <MoviesTable />
     <MoviesByGenre />
     <MoviesByCast />
@@ -20,6 +20,20 @@ export default {
     MoviesTable,
     MoviesByGenre,
     MoviesByCast
+  },
+  data: function() {
+    return {
+      movie: {
+
+      }
+    };
+  },
+  methods: {
+    updateTitle(variable) {
+      this.movie= variable;
+      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
+       console.log(this.movie);
+    }
   }
 };
 </script>
