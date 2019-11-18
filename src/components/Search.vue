@@ -44,16 +44,14 @@
           placeholder="First name and last name"
           class="form-control"
           v-model="searchCast"
-
-
         />
       </div>
       <div class="form-group row">
         <input
-                type="button"
-                value="Search"
-                class="btn btn-info col-sm-12"
-                v-on:click="updateValues()"
+          type="button"
+          value="Search"
+          class="btn btn-info col-sm-12"
+          v-on:click="updateValues()"
         />
       </div>
     </form>
@@ -74,27 +72,22 @@ export default {
     title: "",
     productionFrom: "",
     productionTo: "",
-    cast: "",
-
+    cast: ""
   }),
-methods:
- {  updateValues: function() {
-    this.title = this.searchTitle;
-    this.productionFrom = this.searchProductionFrom;
-    this.productionTo = this.searchProductionTo;
-    this.cast = this.searchCast;
-     /*eslint no-console: ["error", { allow: ["log", "error"] }] */
+  methods: {
+    updateValues: function() {
+      this.title = this.searchTitle;
+      this.productionFrom = this.searchProductionFrom;
+      this.productionTo = this.searchProductionTo;
+      this.cast = this.searchCast;
+      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
 
-     console.log(this.title);
-     console.log(this.productionFrom);
-     console.log(this.productionTo);
-     console.log(this.cast);
-
- },
-
-
- }
-
+      console.log(this.title);
+      console.log(this.productionFrom);
+      console.log(this.productionTo);
+      console.log(this.cast);
+    }
+  }
 };
 </script>
 

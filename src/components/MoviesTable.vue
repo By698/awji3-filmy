@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(movie, index) in Filter" v-bind:key="index">
+        <tr v-for="(movie, index) in Arnold" v-bind:key="index">
           <td>{{movie.title}}</td>
           <td>{{movie.year}}</td>
           <td>{{movie.cast.join(", ")}}</td>
@@ -18,7 +18,7 @@
         </tr>
       </tbody>
     </table>
-    <button @click="limit = limit + 10">Shore more</button>
+    <!-- <button @click="limit = limit + 10">Shore more</button> -->
   </div>
 </template>
 
@@ -36,11 +36,18 @@ export default {
     Movies() {
       return this.limit ? this.movies.slice(0, this.limit) : this.movies;
     },
-    Filter() {
-           /*eslint no-console: ["error", { allow: ["log", "error"] }] */
-      let filtered = _.where(this.movies, {year:2015})
-      console.log(filtered)
-      return filtered
+      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
+    Arnold() {
+      console.log(this.movieFromApp)
+      let sm = this.searchMovie
+      return _.filter(this.movies, function(movie){
+        let titleIncludes = movie.title.toLowerCase().includes(sm.title);
+        let castIncludes = movie.cast.join().toLowerCase().includes(sm.cast);
+        // let yearFrom = movie.year > searchMovie.productionFrom
+        // let yearTo = movie.year < searchMovie.productionTo
+        // console.log(castIncludes)
+        return titleIncludes && castIncludes
+        })
     }
   }
 };
