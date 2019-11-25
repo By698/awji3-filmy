@@ -30,8 +30,6 @@ export default {
   }),
   computed: {
     UniqueCast() {
-      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
-      // console.log(this.movies)
       let actors = _.map(this.movies, function(movie) {
         return movie.cast;
       });

@@ -71,8 +71,6 @@ export default {
   }),
   methods: {  
     submit: function() {
-
-      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
       let search = {title: this.searchTitle, productionFrom: this.searchProductionFrom, productionTo: this.searchProductionTo, cast: this.searchCast}
       this.$emit("inputData", search);
     },
