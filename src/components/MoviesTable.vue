@@ -39,23 +39,10 @@ export default {
     Movies() {
       return this.limit ? this.showedMovies.slice(0, this.limit) : this.showedMovies;
     },
-      /*eslint no-console: ["error", { allow: ["log", "error"] }] */
-    // Arnold() {
-    //   console.log(this.searchData)
-    //   return _.filter(this.movies, function(movie){
-    //     let titleIncludes = movie.title.toLowerCase().includes(this.searchData.title.toLowerCase());
-    //     let castIncludes = movie.cast.join().toLowerCase().includes(this.searchData.cast.toLowerCase());
-    //     // let yearFrom = movie.year > searchMovie.productionFrom
-    //     // let yearTo = movie.year < searchMovie.productionTo
-    //     // console.log(castIncludes)
-    //     return titleIncludes && castIncludes
-    //     })
-    // }
   },
   watch: {
     searchData: function(){
       let sd = this.searchData
-      console.log(sd)
       this.limit = 10;
       this.showedMovies = _.filter(this.movies, function(movie){
         let titleIncludes = movie.title.toLowerCase().includes(sd.title.toLowerCase());
