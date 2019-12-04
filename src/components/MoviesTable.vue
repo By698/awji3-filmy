@@ -18,7 +18,8 @@
         </tr>
       </tbody>
     </table>
-    <button @click="limit = limit + 10">Show more</button>
+    <button @click="checkLimit()">Show more</button>
+    <h3>{{limit + '/' + moviesCount}}</h3>
   </div>
 </template>
 
@@ -33,8 +34,16 @@ export default {
     movies: json.valueOf(), // initialize empty array
     limit: 10,
     showedMovies: json.valueOf(),
+    moviesCount: json.valueOf().length,
     sd: NaN
   }),
+  methods: {
+    checkLimit: function() {
+      this.limit += 10;
+      if (this.limit > this.moviesCount)
+        this.limit = this.moviesCount;
+    }
+  },
   computed: {
     Movies() {
       return this.limit ? this.showedMovies.slice(0, this.limit) : this.showedMovies;
@@ -43,7 +52,6 @@ export default {
   watch: {
     searchData: function(){
       let sd = this.searchData
-      this.limit = 10;
       this.showedMovies = _.filter(this.movies, function(movie){
         let titleIncludes = movie.title.toLowerCase().includes(sd.title.toLowerCase());
         let castIncludes = movie.cast.join().toLowerCase().includes(sd.cast.toLowerCase());
@@ -58,6 +66,10 @@ export default {
           yearTo = true;
         return titleIncludes && castIncludes && yearFrom && yearTo;
       })
+      this.moviesCount = this.showedMovies.length;
+      if (this.moviesCount < 10) {
+        this.limit = this.moviesCount;
+      }
     }
   }
 }
